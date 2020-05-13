@@ -1,6 +1,6 @@
 const mySqlConnection = require('../../../dataBase')
 const controller = {}
-
+//obtener los datos
 controller.get = (req, res) => {
     mySqlConnection.query('SELECT*FROM noticias', (err, rows) => {
         if (!err) {
@@ -11,7 +11,7 @@ controller.get = (req, res) => {
         }
     });
 }
-
+//insertar datos
 controller.save = (req, res) => {
     const data = req.body;
     mySqlConnection.query('INSERT INTO noticias set ?', [data], (err, rows) => {
@@ -23,7 +23,7 @@ controller.save = (req, res) => {
         }
     });
 }
-
+//actualizar datos
 controller.update = (req, res) => {
     mySqlConnection.query('UPDATE noticias SET titulo=?,body=?,imagen=? WHERE id=?', [req.body.titulo,req.body.descripcion,req.body.imagen,req.params.id], (err, rows) => {
         if (!err) {
@@ -35,7 +35,7 @@ controller.update = (req, res) => {
     })
 };
 
-
+//eliminar datos por id
 
 controller.delete = (req, res) => {
 

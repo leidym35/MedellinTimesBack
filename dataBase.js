@@ -1,6 +1,6 @@
 const mysql=require('mysql')
 require('dotenv').config()
-
+//conexion BBDD
 const mysqlConnection = mysql.createConnection({
 host:process.env.HOST,
 user:process.env.USER,

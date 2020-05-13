@@ -1,6 +1,6 @@
 const mySqlConnection = require('../../../dataBase')
 const controller = {}
-
+//obtener los datos
 controller.get = (req, res) => {
     mySqlConnection.query('SELECT*FROM eventos', (err, rows) => {
         if (!err) {
@@ -11,7 +11,7 @@ controller.get = (req, res) => {
         }
     });
 }
-
+//insertar datos
 controller.save = (req, res) => {
     const data = req.body;
     mySqlConnection.query('INSERT INTO eventos set ?', [data], (err, rows) => {
@@ -23,9 +23,9 @@ controller.save = (req, res) => {
         }
     });
 }
-
+//actualizar datos
 controller.update = (req, res) => {
-    mySqlConnection.query('UPDATE eventos SET titulo=?,descripcion=? WHERE id=?', [req.body.titulo,req.body.descripcion,req.params.id], (err, rows) => {
+      mySqlConnection.query('UPDATE eventos SET titulo=?,descripcion=? WHERE id=?', [req.body.titulo,req.body.descripcion,req.params.id], (err, rows) => {
         if (!err) {
             res.json("Actualizado")
 
@@ -37,7 +37,7 @@ controller.update = (req, res) => {
 };
 
 
-
+//eliminar datos por id
 controller.delete = (req, res) => {
      mySqlConnection.query('DELETE FROM  eventos WHERE id=?',[req.params.id] , (err, rows) => {
         if (!err) {
