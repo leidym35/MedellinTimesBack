@@ -11,6 +11,19 @@ controller.get = (req, res) => {
         }
     });
 }
+//eliminar datos por id
+controller.getId = (req, res) => {
+        
+    mySqlConnection.query('SELECT* FROM  publicidad WHERE id=?',[req.params.id] , (err, rows) => {
+       if (!err) {
+            res.json(rows)
+       }
+       else {
+           console.log(err)
+         
+       }
+   }) 
+};
 //insertar datos
 controller.save = (req, res) => {
     const data = req.body;
