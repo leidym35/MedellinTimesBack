@@ -23,17 +23,6 @@ controller.save = (req, res) => {
         }
     });
 }
-//actualizar datos
-controller.update = (req, res) => {
-    mySqlConnection.query('UPDATE noticias SET titulo=?,body=?,imagen=? WHERE id=?', [req.body.titulo,req.body.descripcion,req.body.imagen,req.params.id], (err, rows) => {
-        if (!err) {
-            res.json("Actualizado")
-        }
-        else {
-            console.log(err)
-        }
-    })
-};
 
 //eliminar datos por id
 

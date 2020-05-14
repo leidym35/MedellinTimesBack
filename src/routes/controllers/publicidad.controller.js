@@ -11,19 +11,7 @@ controller.get = (req, res) => {
         }
     });
 }
-//eliminar datos por id
-controller.getId = (req, res) => {
-        
-    mySqlConnection.query('SELECT* FROM  publicidad WHERE id=?',[req.params.id] , (err, rows) => {
-       if (!err) {
-            res.json(rows)
-       }
-       else {
-           console.log(err)
-         
-       }
-   }) 
-};
+
 //insertar datos
 controller.save = (req, res) => {
     const data = req.body;
@@ -36,19 +24,6 @@ controller.save = (req, res) => {
         }
     });
 }
-
-//actualizar datos
-controller.update = (req, res) => {
-    mySqlConnection.query('UPDATE publicidad SET titulo=?,imagen=? WHERE id=?', [req.body.titulo,req.body.imagen,req.params.id], (err, rows) => {
-        if (!err) {
-            res.json("Actualizado")
-        }
-        else {
-            console.log(err)
-        }
-    })
-};
-
 
 //eliminar datos por id
 controller.delete = (req, res) => {

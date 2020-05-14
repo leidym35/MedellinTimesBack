@@ -6,7 +6,5 @@ router.get('/noticias',noticiasController.get);
 
 router.post('/noticiasSave',noticiasController.save)
 
-router.post('/noticiasUpdate/:id',noticiasController.update)
-
 router.get('/noticiasDelete/:id',noticiasController.delete)
 module.exports = router;

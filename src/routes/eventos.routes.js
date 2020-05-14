@@ -6,7 +6,5 @@ router.get('/eventos',eventosController.get);
 
 router.post('/eventosSave',eventosController.save)
 
-router.post('/eventosUpdate/:id',eventosController.update)
-
 router.get('/eventosDelete/:id',eventosController.delete)
 module.exports = router
